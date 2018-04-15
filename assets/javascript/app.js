@@ -2,14 +2,14 @@ $(document).ready(function() {
     // Arrays for Search Parameters 
     var search = [];
 
-    //Function with AJAX call to GIPHY
+    // Function with AJAX call to GIPHY
     // Create div to hold results
     function displayShow() {
 
         var x = $(this).data("search");
         console.log(x);
 
-        var queryURL = " https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=vkt5Yj1aYMqR4ZaWznBK1fNExcPUClGe&limit=15";
+        var queryURL = " https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=vkt5Yj1aYMqR4ZaWznBK1fNExcPUClGe";
 
         console.log(queryURL);
 
@@ -40,3 +40,48 @@ $(document).ready(function() {
             }
         });
     }
+
+    // Listen for Submit Button, Inputs Search Parameter, Trim, Push to Array and Display Button
+    $("#addShow").on("click", function(event) {
+        event.preventDefault();
+        var newShow = $("#giphyInput").val().trim();
+        search.push(newShow);
+        console.log(search);
+        $("#giphyInput").val('');
+        displayButtons();
+    });
+
+    // Function to Iterate through Search to Display Button with Array Values
+    // Write to HTML
+    function displayButtons() {
+        $("#newButtons").empty();
+        for (var i = 0; i < search.length; i++) {
+            var a = $('<button class = "btn btn-primary">');
+            a.attr("id", "show");
+            a.attr("data-search", search[i]);
+            a.text(search[i]);
+            $("#newButtons").append(a);
+        }
+    }
+
+    displayButtons();
+
+    // Listen for Click on "Show"
+    $(document).on("click", "#show", displayShow);
+
+    // Click event to execute Gif functions
+    $(document).on("click", ".showGiphy". pausePlayGifs);
+
+    // Function to access "data-state"
+    function pausePlayGifs() {
+        var state = $(this).attr("data-state");
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    }
+
+});
