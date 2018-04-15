@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX Giphy Button Homework</title>
+        <meta charset = "utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+    </head>
+</html>
+
+<form class = "form-inline" id= "giphySearch">
+    <div class = "form-group">
+        <label for = "giphyInput">Search for Any Show</label>
+        <input type = "text" id = "giphyInput">
+    </div>
+    <!-- Button Triggers Show to be Added -->
+    <input id = "addShow" type = "submit" value = "submit">
+</form>
+
+<div class="row">
+    <div class="container">
+        <div class="btn-group inline pull-left">
+            <button class="btn btn-primary" id="show" data-search="Mr Robot">Mr. Robot</button>
+            <button class="btn btn-primary" id="show" data-search="Scrubs">Scrubs</button>
+            <button class="btn btn-primary" id="show" data-search="Atlanta">Atlanta</button>
+            <button class="btn btn-primary" id="show" data-search="Legion">Legion</button>
+            <div id ="myButtons"></div>
+        </div>
+    </div>
+</div>
+
+<div class = "row">
+    <div class = "container">
+        <span><div id = "gifArea"></div></span>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+    
+    </body>
+    </html>
